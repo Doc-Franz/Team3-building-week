@@ -25,20 +25,27 @@ body main {
   color: white;
 }
 
-h1 {
-  width: 30%;
+#title {
+  width: 100%;
   font-size: 60px;
+  font-weight: 600;
+  margin-bottom: 18px;
 }
 
 body main p {
-  font-size: 3rem;
-  padding: 1rem;
-  margin-bottom: 3rem;
+  font-size: 25px;
+  margin-bottom: 20px;
+  margin-bottom: 1rem;
 }
 
-#stars {
+#stars path {
   width: 7%;
-  padding-bottom: 5rem;
+  padding-bottom: 3rem;
+}
+
+#stars path:hover {
+  fill: #00ffff;
+  /* transform: scale(1.1); */
 }
 
 #feedback {
@@ -53,7 +60,7 @@ body main div input {
   width: 100%;
   color: rgb(126, 126, 126);
   font-size: 2rem;
-  padding-left: 5.5rem;
+  padding-left: 4.2rem;
 }
 
 body main div input:focus-visible {
@@ -63,7 +70,7 @@ body main div input:focus-visible {
 
 input::placeholder {
   color: rgb(126, 126, 126);
-  font-size: 2rem;
+  font-size: 1rem;
 }
 
 /* FOOTER */

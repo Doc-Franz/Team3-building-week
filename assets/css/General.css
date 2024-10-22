@@ -10,15 +10,16 @@ body {
   background-image: url(../images/bg.jpg);
   background-size: cover;
   margin-inline: 5rem;
+  background-repeat: no-repeat;
 }
 
 /* LOGO DA SISTEMARE */
 
 .logo {
-  width: 200px;
-  margin-top: 2rem;
-  margin-left: 4rem;
-  margin-bottom: 4rem;
+  width: 170px;
+  margin-top: 3rem;
+  margin-left: 1.7rem;
+  margin-bottom: 2rem;
 }
 
 /* SPAN */
@@ -31,7 +32,7 @@ span {
 /* PAGE BLOCK STRUCTURE */
 
 .page-block {
-  padding: 4rem 4rem 15rem 4rem;
+  padding: 4rem 4rem 4rem 4rem;
   font-family: "Outfit", sans-serif;
   font-optical-sizing: auto;
   font-weight: lighter;
@@ -45,8 +46,9 @@ button {
   font-optical-sizing: auto;
   font-weight: 600;
   font-style: normal;
-  width: 15%;
-  line-height: 35px;
+  font-size: 20px;
+  width: 30%;
+  line-height: 55px;
   border: none;
   cursor: pointer;
 }
@@ -55,6 +57,7 @@ button {
 .blueBtn {
   color: #0b113b;
   background-color: #00ffff;
+  margin-bottom: 20px;
 }
 
 .blueBtn:hover {
