@@ -1,0 +1,73 @@
+/* * {
+  background-color: bisque;
+  box-sizing: border-box;
+} */
+
+/* HEADER */
+
+/* .logo {
+  width: 20%;
+  padding-left: 10rem;
+  padding-top: 3rem;
+} */
+
+/* PAGE BLOCK STRUCTURE */
+
+/* .page-block {
+  padding: 4rem 20rem 15rem 20rem;
+  text-align: center;
+} */
+
+/* MAIN */
+
+body main {
+  text-align: center;
+  color: white;
+}
+
+h1 {
+  width: 30%;
+  font-size: 60px;
+}
+
+body main p {
+  font-size: 3rem;
+  padding: 1rem;
+  margin-bottom: 3rem;
+}
+
+#stars {
+  width: 7%;
+  padding-bottom: 5rem;
+}
+
+#feedback {
+  padding-bottom: 5rem;
+}
+
+body main div input {
+  height: 3rem;
+  border: none;
+  border-bottom: 0.15rem solid rgb(255, 0, 128);
+  background-color: transparent;
+  width: 100%;
+  color: rgb(126, 126, 126);
+  font-size: 2rem;
+  padding-left: 5.5rem;
+}
+
+body main div input:focus-visible {
+  outline: none;
+  color: white;
+}
+
+input::placeholder {
+  color: rgb(126, 126, 126);
+  font-size: 2rem;
+}
+
+/* FOOTER */
+
+footer {
+  text-align: center;
+}

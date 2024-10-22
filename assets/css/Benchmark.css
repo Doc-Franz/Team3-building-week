@@ -1,0 +1,101 @@
+* {
+  box-sizing: border-box;
+  color: white;
+}
+
+body {
+  font-family: "inter";
+  font-optical-sizing: auto;
+  font-weight: lighter;
+  font-style: normal;
+  color: white;
+  background-image: url(../img/bg.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-inline: 5rem;
+}
+
+header {
+  margin-inline: auto;
+}
+
+.logo {
+  width: 10%;
+  margin-bottom: 4rem;
+  margin-top: 2rem;
+}
+
+main {
+  line-height: 1.5;
+  text-align: center;
+  margin-top: 4rem;
+}
+
+h1 {
+  font-family: "Outfit";
+  font-size: 60px;
+  margin-bottom: 1rem;
+  line-height: 1;
+}
+
+.title {
+  font-size: 60px;
+  padding: 10px;
+  font-weight: 700;
+}
+
+div .choiceBtn {
+  margin-top: 2rem;
+}
+
+/* .choiceBtn {
+        width: 25%;
+        background: rgba(39, 17, 106, 0.489);
+        border-radius: 30px;
+        position: relative;
+        text-align: center;
+        box-sizing: border-box;
+        margin-inline: 20px;
+        color: rgb(226, 223, 223);
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+}
+
+.choiceBtn::before {
+        border-radius: 30px;
+        content: "";
+        background-image: linear-gradient(to bottom, #ffffff90 5%, #2f376d3e 85%);
+        top: -3px;
+        left: -3px;
+        bottom: -3px;
+        right: -3px;
+        position: absolute;
+        z-index: -1;
+}
+
+.choiceBtn:hover {
+        background: linear-gradient(to bottom, #c7008f 30%, #8f007a 70%);
+        transform: scale(1.1);
+} */
+
+.purple {
+  color: #d20094;
+  font-weight: bold;
+  font-size: 16px;
+  margin-top: 2.5rem;
+}
+
+.sendBtn {
+  color: black;
+  margin-bottom: 2rem;
+}
+
+footer {
+  margin-top: 4rem;
+  text-align: center;
+}
+
+footer p {
+  text-align: center;
+  margin-top: 4rem;
+}
