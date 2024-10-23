@@ -12,18 +12,13 @@ const questions = [
     difficulty: "easy",
     question: "What does CPU stand for?",
     correct_answer: "Central Processing Unit",
-    incorrect_answers: [
-      "Central Process Unit",
-      "Computer Personal Unit",
-      "Central Processor Unit",
-    ],
+    incorrect_answers: ["Central Process Unit", "Computer Personal Unit", "Central Processor Unit"],
   },
   {
     category: "Science: Computers",
     type: "multiple",
     difficulty: "easy",
-    question:
-      "In the programming language Java, which of these keywords would you put on a variable to make sure it doesn&#039;t get modified?",
+    question: "In the programming language Java, which of these keywords would you put on a variable to make sure it doesn&#039;t get modified?",
     correct_answer: "Final",
     incorrect_answers: ["Static", "Private", "Public"],
   },
@@ -39,8 +34,7 @@ const questions = [
     category: "Science: Computers",
     type: "boolean",
     difficulty: "easy",
-    question:
-      "Pointers were not used in the original C programming language; they were added later on in C++.",
+    question: "Pointers were not used in the original C programming language; they were added later on in C++.",
     correct_answer: "False",
     incorrect_answers: ["True"],
   },
@@ -48,8 +42,7 @@ const questions = [
     category: "Science: Computers",
     type: "multiple",
     difficulty: "easy",
-    question:
-      "What is the most preferred image format used for logos in the Wikimedia database?",
+    question: "What is the most preferred image format used for logos in the Wikimedia database?",
     correct_answer: ".svg",
     incorrect_answers: [".png", ".jpeg", ".gif"],
   },
@@ -59,18 +52,13 @@ const questions = [
     difficulty: "easy",
     question: "In web design, what does CSS stand for?",
     correct_answer: "Cascading Style Sheet",
-    incorrect_answers: [
-      "Counter Strike: Source",
-      "Corrective Style Sheet",
-      "Computer Style Sheet",
-    ],
+    incorrect_answers: ["Counter Strike: Source", "Corrective Style Sheet", "Computer Style Sheet"],
   },
   {
     category: "Science: Computers",
     type: "multiple",
     difficulty: "easy",
-    question:
-      "What is the code name for the mobile operating system Android 7.0?",
+    question: "What is the code name for the mobile operating system Android 7.0?",
     correct_answer: "Nougat",
     incorrect_answers: ["Ice Cream Sandwich", "Jelly Bean", "Marshmallow"],
   },
@@ -94,26 +82,24 @@ const questions = [
     category: "Science: Computers",
     type: "multiple",
     difficulty: "easy",
-    question:
-      "Which programming language shares its name with an island in Indonesia?",
+    question: "Which programming language shares its name with an island in Indonesia?",
     correct_answer: "Java",
     incorrect_answers: ["Python", "C", "Jakarta"],
   },
 ];
-//console.log(questions);
+console.log(questions);
 
 let firstQuestion = 0;
 
 const totalAnswers = questions.map((element) => element.incorrect_answers);
-totalAnswers.forEach((element, index) =>
-  element.push(questions[index].correct_answer)
-);
+totalAnswers.forEach((element, index) => element.push(questions[index].correct_answer));
 
 const shuffle = (array) => {
   array.sort(() => Math.random() - 0.5);
   return array;
 };
 totalAnswers.forEach((element) => shuffle(element));
+totalAnswers.forEach((element, index) => element.push(questions[index].question));
 
 console.log(totalAnswers);
 
@@ -135,38 +121,43 @@ const getRandomQuestions = function () {
 
   return extractedIndex;
 };
-//console.log(getRandomQuestions());
 
-insertChoice = (questions) => {
+let j = 0;
+
+const arrayIndex = getRandomQuestions();
+
+insertChoice = () => {
   const choices = document.querySelectorAll(".choiceBtn");
-  const arrayIndex = getRandomQuestions();
-  console.log(arrayIndex);
+  const questionTitle = document.querySelector("h1");
+  const secondRow = document.querySelector(".secondRow");
 
-  for (let i = 0; i < totalAnswers.length; i++) {
-    for (let j = 0; j < totalAnswers[i].length; j++) {
-      for (let k = 0; k < arrayIndex.length; k++) {
-        choices[j].textContent = totalAnswers[arrayIndex[k]][j];
-        
-/*        if (totalAnswers[i].length === 2) {
-          const deleteElements = document.querySelectorAll(".nthRow");
-          const btnContainer = document.querySelector(".btnContainer");
-          
-          btnContainer.removeChild(deleteElements[0]);
-          // const deleteElement = document.querySelectorAll(".nthRow");
-          //const btnContainer = document.querySelector(".btnContainer");
-          //btnContainer.removeChild(deleteElement[0]);
-          //btnContainer.removeChild(deleteElement[1]);
-        }
-    */
-      }
-    }
+  if (totalAnswers[arrayIndex[j]].length - 1 === 2) {
+    secondRow.style.display = "none";
+  } else {
+    secondRow.style.display = "block";
   }
 
-  console.log(choices);
+  for (let i = 0; i < totalAnswers[arrayIndex[j]].length - 1; i++) {
+    choices[i].textContent = totalAnswers[arrayIndex[j]][i];
+    questionTitle.textContent = totalAnswers[arrayIndex[j]].at(-1);
+  }
+};
+
+// GENERAZIONE NUOVE PAGINE DI RISPOSTA
+
+const nextQuestion = document.querySelector("#prova");
+
+nextQuestion.onclick = () => {
+  if (j < totalAnswers.length - 1) {
+    j++;
+    insertChoice();
+  } else {
+    console.log("Non ci sono più domande");
+  }
 };
 
 window.onload = () => {
-  insertChoice(questions);
+  insertChoice();
 };
 
 /*
