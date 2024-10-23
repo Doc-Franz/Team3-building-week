@@ -65,6 +65,7 @@ footer {
   margin-left: 0;
 }
 
+
 .blueBtn {
   display: inline-block;
   font-weight: bold;
@@ -75,6 +76,10 @@ footer {
   width: 200px;
   margin-left: 11rem;
   border: none;
+}
+
+#youcan{
+  background-color: gray;
 }
 
 .blueBtn:hover {
