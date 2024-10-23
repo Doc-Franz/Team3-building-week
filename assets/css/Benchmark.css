@@ -3,27 +3,27 @@
   color: white;
 }
 
-body {
+/* body {
   font-family: "inter";
   font-optical-sizing: auto;
   font-weight: lighter;
   font-style: normal;
   color: white;
-  background-image: url(../img/bg.jpg);
+  background-image: url(../images/bg.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   margin-inline: 5rem;
-}
+} */
 
 header {
   margin-inline: auto;
 }
 
-.logo {
+/* .logo {
   width: 10%;
   margin-bottom: 4rem;
   margin-top: 2rem;
-}
+} */
 
 main {
   line-height: 1.5;
@@ -34,7 +34,7 @@ main {
 h1 {
   font-family: "Outfit";
   font-size: 60px;
-  margin-bottom: 1rem;
+  margin-bottom: 4rem;
   line-height: 1;
 }
 
@@ -42,10 +42,6 @@ h1 {
   font-size: 60px;
   padding: 10px;
   font-weight: 700;
-}
-
-div .choiceBtn {
-  margin-top: 2rem;
 }
 
 /* .choiceBtn {
@@ -81,8 +77,10 @@ div .choiceBtn {
 .purple {
   color: #d20094;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 1.5rem;
   margin-top: 2.5rem;
+  font-weight: 400;
+  letter-spacing: 2px;
 }
 
 .sendBtn {
@@ -91,11 +89,14 @@ div .choiceBtn {
 }
 
 footer {
-  margin-top: 4rem;
+  margin-top: 7rem;
   text-align: center;
 }
 
 footer p {
   text-align: center;
   margin-top: 4rem;
+  font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: 2px;
 }

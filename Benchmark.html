@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="it">
   <head>
     <meta charset="UTF-8" />
@@ -13,27 +13,44 @@
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./assets/css/General.css" />
     <link rel="stylesheet" href="./assets/css/Benchmark.css" />
   </head>
   <body>
-    ciao ciao
     <header>
-      <img src="./assets/img/epicode_logo.png" alt="epicode_logo" class="logo" />
+      <img
+        src="./assets/images/epicode_logo.png"
+        alt="epicode_logo"
+        class="logo"
+      />
     </header>
     <div class="page-block">
       <main>
         <h1>How can i create a <span class="title">checkbox in HTML</span>?</h1>
         <div class="btnContainer">
-          <input type="button" value="risposta 1" class="choiceBtn" />
+          <div>
+            <button class="choiceBtn">Risposta 1</button>
+            <button class="choiceBtn">Risposta 2</button>
+          </div>
+          <div>
+            <button class="choiceBtn">Risposta 3</button>
+            <button class="choiceBtn">Risposta 4</button>
+          </div>
+
+          <!--           <input type="button" value="risposta 1" class="choiceBtn" />
           <input type="button" value="risposta 2" class="choiceBtn" />
           <input type="button" value="risposta 3" class="choiceBtn" />
-          <input type="button" value="risposta 4" class="choiceBtn" />
+          <input type="button" value="risposta 4" class="choiceBtn" /> -->
         </div>
       </main>
       <footer>
-        <a href="./Results.html"><button class="sendBtn">INVIA</button></a>
+        <a href="./Results.html"
+          ><button class="sendBtn blueBtn">INVIA</button></a
+        >
         <p>QUESTION 1<span class="purple">/10</span></p>
         <script src="./js/Benchmark.js"></script>
       </footer>
