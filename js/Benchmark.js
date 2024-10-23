@@ -102,7 +102,20 @@ const questions = [
 ];
 //console.log(questions);
 
-let firstQuestion = null;
+let firstQuestion = 0;
+
+const totalAnswers = questions.map((element) => element.incorrect_answers);
+totalAnswers.forEach((element, index) =>
+  element.push(questions[index].correct_answer)
+);
+
+const shuffle = (array) => {
+  array.sort(() => Math.random() - 0.5);
+  return array;
+};
+totalAnswers.forEach((element) => shuffle(element));
+
+console.log(totalAnswers);
 
 const generateFirstQuestion = function () {
   firstQuestion = Math.floor(Math.random() * questions.length);
@@ -112,7 +125,6 @@ const generateFirstQuestion = function () {
 const getRandomQuestions = function () {
   generateFirstQuestion();
   const extractedIndex = [firstQuestion];
-
   while (extractedIndex.length < questions.length) {
     const random = Math.floor(Math.random() * questions.length);
 
@@ -123,14 +135,42 @@ const getRandomQuestions = function () {
 
   return extractedIndex;
 };
-console.log(getRandomQuestions());
+//console.log(getRandomQuestions());
 
-window.onload = () => {
-  getRandomQuestions();
-  console.log(firstQuestion);
+insertChoice = (questions) => {
+  const choices = document.querySelectorAll(".choiceBtn");
+  const arrayIndex = getRandomQuestions();
+  console.log(arrayIndex);
+
+  for (let i = 0; i < totalAnswers.length; i++) {
+    for (let j = 0; j < totalAnswers[i].length; j++) {
+      for (let k = 0; k < arrayIndex.length; k++) {
+        choices[j].textContent = totalAnswers[arrayIndex[k]][j];
+        
+/*        if (totalAnswers[i].length === 2) {
+          const deleteElements = document.querySelectorAll(".nthRow");
+          const btnContainer = document.querySelector(".btnContainer");
+          
+          btnContainer.removeChild(deleteElements[0]);
+          // const deleteElement = document.querySelectorAll(".nthRow");
+          //const btnContainer = document.querySelector(".btnContainer");
+          //btnContainer.removeChild(deleteElement[0]);
+          //btnContainer.removeChild(deleteElement[1]);
+        }
+    */
+      }
+    }
+  }
+
+  console.log(choices);
 };
 
-/* const sendBtn = document.getElementById("sendBtn");
+window.onload = () => {
+  insertChoice(questions);
+};
+
+/*
+const sendBtn = document.getElementById("sendBtn");
 
 const nextQuestion = function () {
   sendBtn.onclick = function () {};
@@ -138,6 +178,8 @@ const nextQuestion = function () {
 
 const changeQuestion = function () {
   const h1 = document.querySelector("h1");
-}; */
+};
+
+*/
 
 //console.log(h1);
