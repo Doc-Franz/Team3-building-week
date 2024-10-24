@@ -210,29 +210,65 @@ const whichButtonIsSelected = () => {
 
 const nextQuestion = document.querySelector(".sendBtn");
 const qNumber = document.getElementById("qNumber");
+let lastQuestionAnswered = false;
 
 nextQuestion.onclick = () => {
+  if (lastQuestionAnswered) {
+    sendLastAnswer();
+    linkToResults();
+    return;
+  }
   if (j < totalAnswers.length - 1) {
     const isSelected = document.querySelector(".selected");
     if (isSelected.classList.contains("correct")) {
       isCorrect++;
     }
     percentageCorrect = (isCorrect / questions.length) * 100;
-    btn1.classList.remove("correct");
-    btn2.classList.remove("correct");
-    btn3.classList.remove("correct");
-    btn4.classList.remove("correct");
+
+    resetClass();
+
     console.log(isCorrect);
     console.log(percentageCorrect + "%");
     j++;
+
     insertChoice();
     qNumber.textContent = j + 1;
-  } else {
-    console.log("Non ci sono più domande");
+    if (j === totalAnswers.length - 1) {
+      lastQuestionAnswered = true;
+    }
   }
 };
 
-// AGGIORNA NUMERO DOMANDA
+// RESET DELLE CLASSI
+
+const resetClass = () => {
+  btn1.classList.remove("selected");
+  btn2.classList.remove("selected");
+  btn3.classList.remove("selected");
+  btn4.classList.remove("selected");
+  btn1.classList.remove("correct");
+  btn2.classList.remove("correct");
+  btn3.classList.remove("correct");
+  btn4.classList.remove("correct");
+};
+
+// INVIO ULTIMA DOMANDA
+
+const sendLastAnswer = () => {
+  nextQuestion.textContent = "SHOW RESULTS";
+};
+
+// COLLEGAMENTO ALLA PAGINA DI RESULTS
+
+const a = document.querySelector("a[href]");
+
+const linkToResults = () => {
+  nextQuestion.onclick = () => {
+    a.href = "./Results.html";
+  };
+};
+
+// WINDOW ON LOAD
 
 window.onload = () => {
   insertChoice();
