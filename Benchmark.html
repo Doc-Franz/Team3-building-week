@@ -19,8 +19,21 @@
   </head>
   <body>
     <header>
-      <img src="./assets/images/epicode_logo.png" alt="epicode_logo" class="logo" />
+      <img src="./assets/images/epicode_logo.png" alt="epicode_logo" class="logo inline" />
+      <div class="timer inline">
+        <svg width="200" height="200">
+          <circle cx="100" cy="100" r="90" class="circle-bg" />
+
+          <circle cx="100" cy="100" r="90" class="circle" />
+        </svg>
+
+        <div id="seconds">
+          <p class="small">seconds</p>
+          <p class="small">remaining</p>
+        </div>
+      </div>
     </header>
+
     <div class="page-block">
       <main>
         <h1>How can i create a <span class="title">checkbox in HTML</span>?</h1>

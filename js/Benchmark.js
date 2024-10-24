@@ -150,6 +150,7 @@ insertChoice = () => {
     choices[i].textContent = totalAnswers[arrayIndex[j]][i];
     questionTitle.textContent = totalAnswers[arrayIndex[j]].at(-1);
   }
+  resetTimer();
 };
 
 // QUALE BOTTONE STO SELEZIONANDO
@@ -274,25 +275,58 @@ const linkToResults = () => {
   };
 };
 
+// TIMER
+
+const circle = document.querySelector(".circle");
+const secondsDisplay = document.getElementById("seconds");
+let totalSeconds = 10;
+let remainingSeconds = totalSeconds;
+
+const newP = document.createElement("p");
+newP.classList.add("count-down");
+
+const firstP = secondsDisplay.querySelector("p");
+const secondP = firstP.nextElementSibling;
+
+secondsDisplay.insertBefore(newP, secondP);
+
+function updateTimer() {
+  remainingSeconds--;
+  //secondsDisplay.textContent = "tempo rimanente" + remainingSeconds + "secondi";
+  newP.textContent = remainingSeconds;
+
+  const offset = (remainingSeconds / totalSeconds) * 565; // 2 * π * r
+  circle.style.strokeDashoffset = offset;
+
+  if (remainingSeconds <= 0) {
+    remainingSeconds = totalSeconds;
+    insertChoice(); // Passa alla prossima domanda quando il timer arriva a 0
+    j++; // Passa alla domanda successiva
+    if (j < totalAnswers.length) {
+      qNumber.textContent = j + 1;
+    } else {
+      // Se ha raggiunto la fine, manda ai risultati
+      sendLastAnswer();
+      linkToResults();
+    }
+  }
+}
+
+// RESET TIMER
+
+function resetTimer() {
+  remainingSeconds = totalSeconds;
+  newP.textContent = remainingSeconds;
+  const offset = (remainingSeconds / totalSeconds) * 565;
+  circle.style.strokeDashoffset = offset;
+}
+
 // WINDOW ON LOAD
 
 window.onload = () => {
   insertChoice();
   defineNumberQuestion(questions);
   whichButtonIsSelected();
+  // updateTimer();
+  setInterval(updateTimer, 1000);
 };
-
-/*
-const sendBtn = document.getElementById("sendBtn");
-
-const nextQuestion = function () {
-  sendBtn.onclick = function () {};
-};
-
-const changeQuestion = function () {
-  const h1 = document.querySelector("h1");
-};
-
-*/
-
-//console.log(h1);
