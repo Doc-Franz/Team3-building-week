@@ -225,6 +225,8 @@ nextQuestion.onclick = () => {
     }
     percentageCorrect = (isCorrect / questions.length) * 100;
 
+    localStorage.setItem("percentageCorrect", percentageCorrect);
+
     resetClass();
 
     console.log(isCorrect);
