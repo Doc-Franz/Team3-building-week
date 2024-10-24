@@ -87,7 +87,14 @@ const questions = [
     incorrect_answers: ["Python", "C", "Jakarta"],
   },
 ];
-console.log(questions);
+
+// IMPOSTARE NUMERO DI TOTAL QUESTIONS
+
+const defineNumberQuestion = (questions) => {
+  const purpleNumber = document.querySelector(".qTotal");
+  purpleNumber.textContent = questions.length;
+  console.log(purpleNumber.textContent);
+};
 
 let firstQuestion = 0;
 
@@ -123,6 +130,8 @@ const getRandomQuestions = function () {
 };
 
 let j = 0;
+let isCorrect = 0; // Contatore che tiene conto di quante risposte sono corrette
+let percentageCorrect = (isCorrect / questions.length) * 100; // Verifica la percentuale di risposte corrette
 
 const arrayIndex = getRandomQuestions();
 
@@ -143,21 +152,92 @@ insertChoice = () => {
   }
 };
 
+// QUALE BOTTONE STO SELEZIONANDO
+
+const btn1 = document.getElementById("btn1");
+const btn2 = document.getElementById("btn2");
+const btn3 = document.getElementById("btn3");
+const btn4 = document.getElementById("btn4");
+
+const whichButtonIsSelected = () => {
+  btn1.onclick = () => {
+    console.log(btn1.textContent);
+    if (questions[arrayIndex[j]].correct_answer === btn1.textContent) {
+      // console.log("risposta esatta");
+      btn1.classList.add("correct");
+    }
+    btn1.classList.add("selected");
+    btn2.classList.remove("selected");
+    btn3.classList.remove("selected");
+    btn4.classList.remove("selected");
+  };
+  btn2.onclick = () => {
+    console.log(btn2.textContent);
+    if (questions[arrayIndex[j]].correct_answer === btn2.textContent) {
+      // console.log("risposta esatta");
+      btn2.classList.add("correct");
+    }
+    btn2.classList.add("selected");
+    btn1.classList.remove("selected");
+    btn3.classList.remove("selected");
+    btn4.classList.remove("selected");
+  };
+  btn3.onclick = () => {
+    console.log(btn3.textContent);
+    if (questions[arrayIndex[j]].correct_answer === btn3.textContent) {
+      // console.log("risposta esatta");
+      btn3.classList.add("correct");
+    }
+    btn3.classList.add("selected");
+    btn1.classList.remove("selected");
+    btn2.classList.remove("selected");
+    btn4.classList.remove("selected");
+  };
+  btn4.onclick = () => {
+    console.log(btn4.textContent);
+    if (questions[arrayIndex[j]].correct_answer === btn4.textContent) {
+      // console.log("risposta esatta");
+      btn4.classList.add("correct");
+    }
+    btn4.classList.add("selected");
+    btn1.classList.remove("selected");
+    btn2.classList.remove("selected");
+    btn3.classList.remove("selected");
+  };
+};
+
 // GENERAZIONE NUOVE PAGINE DI RISPOSTA
 
-const nextQuestion = document.querySelector("#prova");
+const nextQuestion = document.querySelector(".sendBtn");
+const qNumber = document.getElementById("qNumber");
 
 nextQuestion.onclick = () => {
   if (j < totalAnswers.length - 1) {
+    const isSelected = document.querySelector(".selected");
+    if (isSelected.classList.contains("correct")) {
+      isCorrect++;
+    }
+    percentageCorrect = (isCorrect / questions.length) * 100;
+    btn1.classList.remove("correct");
+    btn2.classList.remove("correct");
+    btn3.classList.remove("correct");
+    btn4.classList.remove("correct");
+    console.log(isCorrect);
+    console.log(percentageCorrect + "%");
     j++;
     insertChoice();
+    qNumber.textContent = j + 1;
   } else {
     console.log("Non ci sono più domande");
   }
 };
 
+// AGGIORNA NUMERO DOMANDA
+
 window.onload = () => {
   insertChoice();
+  defineNumberQuestion(questions);
+  whichButtonIsSelected();
 };
 
 /*

@@ -26,12 +26,12 @@
         <h1>How can i create a <span class="title">checkbox in HTML</span>?</h1>
         <div class="btnContainer">
           <div class="firstRow">
-            <button class="choiceBtn">Risposta 1</button>
-            <button class="choiceBtn">Risposta 2</button>
+            <button class="choiceBtn" id="btn1">Risposta 1</button>
+            <button class="choiceBtn" id="btn2">Risposta 2</button>
           </div>
           <div class="secondRow">
-            <button class="choiceBtn">Risposta 3</button>
-            <button class="choiceBtn">Risposta 4</button>
+            <button class="choiceBtn" id="btn3">Risposta 3</button>
+            <button class="choiceBtn" id="btn4">Risposta 4</button>
           </div>
 
           <!--           <input type="button" value="risposta 1" class="choiceBtn" />
@@ -41,10 +41,11 @@
         </div>
       </main>
       <footer>
-        <a href="./Results.html"><button id="sendBtn" class="sendBtn blueBtn">INVIA</button></a>
-        <p>QUESTION 1<span class="purple">/10</span></p>
-        <button id="prova">PROVA</button>
-        <!-- BOTTONE DI PROVA DA MODIFICARE-->
+        <!-- <a href="./Results.html"> -->
+        <button id="sendBtn" class="sendBtn blueBtn">INVIA</button>
+        <!-- </a> -->
+        <p>QUESTION <span id="qNumber">1</span><span class="purple">/</span><span class="qTotal purple">0</span></p>
+
         <script src="./js/Benchmark.js"></script>
       </footer>
     </div>

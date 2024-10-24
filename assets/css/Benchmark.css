@@ -85,6 +85,10 @@ h1 {
   color: black;
 }
 
+.selected {
+  background: linear-gradient(to bottom, #c7008f 30%, #8f007a 70%);
+}
+
 footer {
   text-align: center;
   margin-top: 2rem;
@@ -97,4 +101,3 @@ footer p {
   font-weight: 400;
   letter-spacing: 2px;
 }
-
