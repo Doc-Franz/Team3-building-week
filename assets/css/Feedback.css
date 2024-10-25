@@ -59,6 +59,10 @@ body main p {
   /* transform: scale(1.1); */
 }
 
+.mouse-over {
+  fill: #00ffff;
+}
+
 #feedback {
   padding-bottom: 5rem;
 }
