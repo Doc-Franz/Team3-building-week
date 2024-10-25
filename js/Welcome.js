@@ -1,15 +1,19 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const checkbox = document.getElementById("myCheckbox");
-  const blueBtn = document.getElementById("myButton");
+const checkbox = document.getElementById("iPromise");
+const blueBtn = document.getElementById("youcan");
+const examForm = document.getElementById("examForm");
 
-  const toggleButton = () => {
-    if (checkbox.checked) {
-      blueBtn.disabled = false;
-      blueBtn.classList.remove("disabled");
-    } else {
-      blueBtn.disabled = true;
-      blueBtn.classList.add("disabled");
-    }
-  };
-  checkbox.addEventListener("change", toggleButton);
+const toggleButton = () => {
+  blueBtn.disabled = !checkbox.checked;
+};
+/* console.log(checkbox.checked); */
+
+checkbox.addEventListener("change", toggleButton);
+
+examForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  if (checkbox.checked) {
+    window.location.href = "./Benchmark.html";
+  }
 });
+
+toggleButton();

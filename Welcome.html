@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="it">
   <head>
     <meta charset="UTF-8" />
@@ -12,14 +12,23 @@
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./assets/css/General.css" />
     <link rel="stylesheet" href="./assets/css/Welcome.css" />
     <title>Welcome</title>
   </head>
   <body>
     <header>
-      <figure><img src="./assets/images/epicode_logo.png" alt="epicode_logo" class="logo" /></figure>
+      <figure>
+        <img
+          src="./assets/images/epicode_logo.png"
+          alt="epicode_logo"
+          class="logo"
+        />
+      </figure>
     </header>
     <div class="page-block">
       <main>
@@ -29,17 +38,31 @@
         </h1>
         <h3 class="purple">Instructions</h3>
         <div class="centralBlock">
-          <p>We don't expect most engineers to know the answers to all of these questions, so don't worry if you're unsure of a few of them.</p>
+          <p>
+            We don't expect most engineers to know the answers to all of these
+            questions, so don't worry if you're unsure of a few of them.
+          </p>
           <ul>
-            <li>Each question is <span>timed</span> and can only <span>answered once</span>.</li>
-            <li>Changing browser tab or opening other windows will <span>invalidate the question</span>.</li>
+            <li>
+              Each question is <span>timed</span> and can only
+              <span>answered once</span>.
+            </li>
+            <li>
+              Changing browser tab or opening other windows will
+              <span>invalidate the question</span>.
+            </li>
             <li>This exam will take approx. <span>0-5 minutes</span>.</li>
           </ul>
         </div>
       </main>
       <footer>
-        <input type="checkbox" id="ipromise" class="checkMe" /> I promise to answer myself without help from anyone
-        <a href="#"><button id="youcan" class="blueBtn">PROCEED</button></a>
+        <form id="examForm">
+          <input type="checkbox" id="iPromise" class="checkMe" required />
+          <label for="iPromise"
+            >I promise to answer myself without help from anyone</label
+          >
+          <button id="youcan" class="blueBtn" disabled>PROCEED</button>
+        </form>
       </footer>
     </div>
     <script src="./js/Welcome.js"></script>
