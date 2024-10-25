@@ -24,6 +24,7 @@ main h2 {
 
 #correct {
   padding-right: 10rem;
+  margin-right: 250px;
 }
 
 #wrong h1 {
@@ -86,7 +87,7 @@ main > div {
 .chart-text {
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: 52%;
   transform: translate(-50%, -50%);
   font-size: 15px;
 }
@@ -111,4 +112,3 @@ footer {
   color: rgb(177, 172, 172);
   font-weight: 200;
 }
-

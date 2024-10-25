@@ -9,7 +9,7 @@ let percentageIncorrect = 100 - percentageCorrect;
 function updateChart() {
   const circle = document.querySelector(".chart");
   const quantity = document.querySelectorAll(".quantity");
-  circle.style.background = `conic-gradient(#00d8ff ${percentageCorrect}%, #ff0080 0%)`;
+  circle.style.background = `conic-gradient(#ff0080 ${percentageIncorrect}%, #00d8ff 0%)`;
 
   const percentageText = document.querySelectorAll(".percentage");
   percentageText[0].textContent = percentageCorrect + "%";
