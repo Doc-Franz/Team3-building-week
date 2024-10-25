@@ -6,6 +6,7 @@
 /* HEADER  */
 
 header {
+  position: relative;
   margin-inline: auto;
 }
 
@@ -22,8 +23,8 @@ header {
 
 .timer {
   position: absolute;
-  right: 8rem;
-  bottom: 43rem;
+  right: 20px;
+  top: 20px;
 }
 
 .count-down {
@@ -65,7 +66,7 @@ header {
 /* MAIN  */
 
 .page-block {
-  margin-top: 200px;
+  margin-top: 60px;
 }
 
 main {
@@ -104,6 +105,7 @@ h1 {
 
 .sendBtn {
   color: black;
+  width: 20%;
 }
 
 .selected {
