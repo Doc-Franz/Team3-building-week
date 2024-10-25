@@ -1,4 +1,4 @@
-/* 
+/*
 Cosa dobbiamo fare:
 fare in modo che ogni colta che il pulsante di invia risposta viene cliccato cambi la pagina con le domande.
 
@@ -12,13 +12,18 @@ const questions = [
     difficulty: "easy",
     question: "What does CPU stand for?",
     correct_answer: "Central Processing Unit",
-    incorrect_answers: ["Central Process Unit", "Computer Personal Unit", "Central Processor Unit"],
+    incorrect_answers: [
+      "Central Process Unit",
+      "Computer Personal Unit",
+      "Central Processor Unit",
+    ],
   },
   {
     category: "Science: Computers",
     type: "multiple",
     difficulty: "easy",
-    question: "In the programming language Java, which of these keywords would you put on a variable to make sure it doesn&#039;t get modified?",
+    question:
+      "In the programming language Java, which of these keywords would you put on a variable to make sure it doesn&#039;t get modified?",
     correct_answer: "Final",
     incorrect_answers: ["Static", "Private", "Public"],
   },
@@ -34,7 +39,8 @@ const questions = [
     category: "Science: Computers",
     type: "boolean",
     difficulty: "easy",
-    question: "Pointers were not used in the original C programming language; they were added later on in C++.",
+    question:
+      "Pointers were not used in the original C programming language; they were added later on in C++.",
     correct_answer: "False",
     incorrect_answers: ["True"],
   },
@@ -42,7 +48,8 @@ const questions = [
     category: "Science: Computers",
     type: "multiple",
     difficulty: "easy",
-    question: "What is the most preferred image format used for logos in the Wikimedia database?",
+    question:
+      "What is the most preferred image format used for logos in the Wikimedia database?",
     correct_answer: ".svg",
     incorrect_answers: [".png", ".jpeg", ".gif"],
   },
@@ -52,13 +59,18 @@ const questions = [
     difficulty: "easy",
     question: "In web design, what does CSS stand for?",
     correct_answer: "Cascading Style Sheet",
-    incorrect_answers: ["Counter Strike: Source", "Corrective Style Sheet", "Computer Style Sheet"],
+    incorrect_answers: [
+      "Counter Strike: Source",
+      "Corrective Style Sheet",
+      "Computer Style Sheet",
+    ],
   },
   {
     category: "Science: Computers",
     type: "multiple",
     difficulty: "easy",
-    question: "What is the code name for the mobile operating system Android 7.0?",
+    question:
+      "What is the code name for the mobile operating system Android 7.0?",
     correct_answer: "Nougat",
     incorrect_answers: ["Ice Cream Sandwich", "Jelly Bean", "Marshmallow"],
   },
@@ -82,7 +94,8 @@ const questions = [
     category: "Science: Computers",
     type: "multiple",
     difficulty: "easy",
-    question: "Which programming language shares its name with an island in Indonesia?",
+    question:
+      "Which programming language shares its name with an island in Indonesia?",
     correct_answer: "Java",
     incorrect_answers: ["Python", "C", "Jakarta"],
   },
@@ -99,14 +112,18 @@ const defineNumberQuestion = (questions) => {
 let firstQuestion = 0;
 
 const totalAnswers = questions.map((element) => element.incorrect_answers);
-totalAnswers.forEach((element, index) => element.push(questions[index].correct_answer));
+totalAnswers.forEach((element, index) =>
+  element.push(questions[index].correct_answer)
+);
 
 const shuffle = (array) => {
   array.sort(() => Math.random() - 0.5);
   return array;
 };
 totalAnswers.forEach((element) => shuffle(element));
-totalAnswers.forEach((element, index) => element.push(questions[index].question));
+totalAnswers.forEach((element, index) =>
+  element.push(questions[index].question)
+);
 
 console.log(totalAnswers);
 
@@ -164,7 +181,6 @@ const whichButtonIsSelected = () => {
   btn1.onclick = () => {
     console.log(btn1.textContent);
     if (questions[arrayIndex[j]].correct_answer === btn1.textContent) {
-      // console.log("risposta esatta");
       btn1.classList.add("correct");
     }
     btn1.classList.add("selected");
@@ -175,7 +191,6 @@ const whichButtonIsSelected = () => {
   btn2.onclick = () => {
     console.log(btn2.textContent);
     if (questions[arrayIndex[j]].correct_answer === btn2.textContent) {
-      // console.log("risposta esatta");
       btn2.classList.add("correct");
     }
     btn2.classList.add("selected");
@@ -186,7 +201,6 @@ const whichButtonIsSelected = () => {
   btn3.onclick = () => {
     console.log(btn3.textContent);
     if (questions[arrayIndex[j]].correct_answer === btn3.textContent) {
-      // console.log("risposta esatta");
       btn3.classList.add("correct");
     }
     btn3.classList.add("selected");
@@ -197,7 +211,6 @@ const whichButtonIsSelected = () => {
   btn4.onclick = () => {
     console.log(btn4.textContent);
     if (questions[arrayIndex[j]].correct_answer === btn4.textContent) {
-      // console.log("risposta esatta");
       btn4.classList.add("correct");
     }
     btn4.classList.add("selected");
@@ -214,11 +227,6 @@ const qNumber = document.getElementById("qNumber");
 let lastQuestionAnswered = false;
 
 nextQuestion.onclick = () => {
-  if (lastQuestionAnswered) {
-    sendLastAnswer();
-    linkToResults();
-    return;
-  }
   if (j < totalAnswers.length - 1) {
     const isSelected = document.querySelector(".selected");
     if (isSelected.classList.contains("correct")) {
@@ -242,6 +250,8 @@ nextQuestion.onclick = () => {
     qNumber.textContent = j + 1;
     if (j === totalAnswers.length - 1) {
       lastQuestionAnswered = true;
+      sendLastAnswer();
+      linkToResults();
     }
   }
 };
@@ -262,7 +272,7 @@ const resetClass = () => {
 // INVIO ULTIMA DOMANDA
 
 const sendLastAnswer = () => {
-  nextQuestion.textContent = "SHOW RESULTS";
+  nextQuestion.textContent = "END OF EXAM";
 };
 
 // COLLEGAMENTO ALLA PAGINA DI RESULTS
@@ -278,6 +288,7 @@ const linkToResults = () => {
 // TIMER
 
 const circle = document.querySelector(".circle");
+const circleBg = document.querySelector(".circle-bg");
 const secondsDisplay = document.getElementById("seconds");
 let totalSeconds = 10;
 let remainingSeconds = totalSeconds;
@@ -292,7 +303,6 @@ secondsDisplay.insertBefore(newP, secondP);
 
 function updateTimer() {
   remainingSeconds--;
-  //secondsDisplay.textContent = "tempo rimanente" + remainingSeconds + "secondi";
   newP.textContent = remainingSeconds;
 
   const offset = (remainingSeconds / totalSeconds) * 565; // 2 * π * r
@@ -300,14 +310,27 @@ function updateTimer() {
 
   if (remainingSeconds <= 0) {
     remainingSeconds = totalSeconds;
-    insertChoice(); // Passa alla prossima domanda quando il timer arriva a 0
+
     j++; // Passa alla domanda successiva
-    if (j < totalAnswers.length) {
+    insertChoice(); // Passa alla prossima domanda quando il timer arriva a 0
+    if (j < totalAnswers.length - 1) {
       qNumber.textContent = j + 1;
     } else {
-      // Se ha raggiunto la fine, manda ai risultati
-      sendLastAnswer();
-      linkToResults();
+      qNumber.textContent = j + 1;
+      //sendLastAnswer()
+      nextQuestion.textContent = "END OF EXAM";
+      //linkToResults();
+     
+      //const intervall = setInterval(updateTimer, 1000);
+      // setTimeout(function() {
+      // }, 10000);
+      // setTimeout(function () {
+      //   window.location.href = "./Results.html";
+      //   clearInterval(setInterval(updateTimer, 1000)); //--> così fermo l'intervallo
+      //   circle.style.display = "none"; //--> così nascondo il timer
+      //   circleBg.style.display = "none"; //--> così nascondo il circle azzurro
+      //   newP.style.display = "none"; //--> così nascondo il conteggio
+      // }, 10000);
     }
   }
 }
@@ -327,6 +350,5 @@ window.onload = () => {
   insertChoice();
   defineNumberQuestion(questions);
   whichButtonIsSelected();
-  // updateTimer();
   setInterval(updateTimer, 1000);
 };
