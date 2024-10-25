@@ -19,21 +19,46 @@
   </head>
   <body>
     <header>
-      <img src="./assets/img/epicode_logo.png" alt="epicode_logo" class="logo" />
+      <img src="./assets/images/epicode_logo.png" alt="epicode_logo" class="logo inline" />
+      <div class="timer inline">
+        <svg width="200" height="200">
+          <circle cx="100" cy="100" r="90" class="circle-bg" />
+
+          <circle cx="100" cy="100" r="90" class="circle" />
+        </svg>
+
+        <div id="seconds">
+          <p class="small">seconds</p>
+          <p class="small">remaining</p>
+        </div>
+      </div>
     </header>
+
     <div class="page-block">
       <main>
         <h1>How can i create a <span class="title">checkbox in HTML</span>?</h1>
         <div class="btnContainer">
-          <input type="button" value="risposta 1" class="choiceBtn" />
+          <div class="firstRow">
+            <button class="choiceBtn" id="btn1">Risposta 1</button>
+            <button class="choiceBtn" id="btn2">Risposta 2</button>
+          </div>
+          <div class="secondRow">
+            <button class="choiceBtn" id="btn3">Risposta 3</button>
+            <button class="choiceBtn" id="btn4">Risposta 4</button>
+          </div>
+
+          <!--           <input type="button" value="risposta 1" class="choiceBtn" />
           <input type="button" value="risposta 2" class="choiceBtn" />
           <input type="button" value="risposta 3" class="choiceBtn" />
-          <input type="button" value="risposta 4" class="choiceBtn" />
+          <input type="button" value="risposta 4" class="choiceBtn" /> -->
         </div>
       </main>
       <footer>
-        <a href="./Results.html"><button class="sendBtn">INVIA</button></a>
-        <p>QUESTION 1<span class="purple">/10</span></p>
+        <!-- <a href="./Results.html"> -->
+        <a href="#"><button id="sendBtn" class="sendBtn blueBtn">NEXT QUESTION</button></a>
+        <!-- </a> -->
+        <p>QUESTION <span id="qNumber">1</span><span class="purple">/</span><span class="qTotal purple">0</span></p>
+
         <script src="./js/Benchmark.js"></script>
       </footer>
     </div>

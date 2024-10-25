@@ -19,37 +19,41 @@
   </head>
   <body>
     <header>
-      <img src="assets/epicode_logo.png" alt="logo" class="logo" />
+      <img src="assets/images/epicode_logo.png" alt="logo" class="logo" />
     </header>
     <div class="page-block">
       <main>
-        <h1>Results</h1>
-        <h3>The summary of your anwers:</h3>
-        <div>
-          <div>
+        <h1><span>Results</span></h1>
+        <h2 id="summary">The summary of your anwers:</h2>
+        <div class="results-container">
+          <div class="answer" id="correct">
             <h1>Correct</h1>
-            <h1>percentuale</h1>
-            <h3>quantità risposte giuste</h3>
+            <h1 class="percentage">percentuale</h1>
+            <h3 class="quantity"><span>quantità risposte giuste</span></h3>
           </div>
-          <div id="grafico">
-            <div>
-              <p>Congratulations!</p>
-              <p><bold>You passed the exam.</bold></p>
+          <div class="answer" id="grafico">
+            <div class="chart">
+              <div class="chart-center"></div>
+            </div>
+
+            <div class="chart-text">
+              <h3 id="result">Congratulations!</h3>
+              <h3 id="blue">You passed the exam.</h3>
               <p>We'll send you the certificate in few minutes.</p>
               <p>Check your email (including promotions / spam).</p>
             </div>
           </div>
-          <div>
+          <div class="answer" id="wrong">
             <h1>Wrong</h1>
-            <h1>percentuale</h1>
-            <h3>quantità risposte sbagliate</h3>
+            <h1 class="percentage">percentuale</h1>
+            <h3 class="quantity"><span>quantità risposte sbagliate</span></h3>
           </div>
         </div>
       </main>
       <footer>
         <button class="rateUsBtn">RATE US</button>
       </footer>
-      <script src="./js/Results.js"></script>
+      <script src="js\Results.js"></script>
     </div>
   </body>
 </html>
