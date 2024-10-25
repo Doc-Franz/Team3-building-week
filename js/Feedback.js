@@ -3,6 +3,8 @@
 const starsNumbers = 10;
 const feedback = ["Sorry, tell us what we can improve on!", "Thank you, we will try to improve!", "Thanks for the great feedback!"];
 
+let feedbackIndex = 0;
+
 // GENERATING STARS
 
 const generatingStars = () => {
@@ -32,14 +34,7 @@ const giveMeFeedback = (feedback) => {
             pathElement.style.fill = "white";
           }
         });
-        const title = document.getElementById("title");
-        if (index < 5) {
-          title.innerText = feedback[0];
-        } else if (index >= 5 && index < 8) {
-          title.innerText = feedback[1];
-        } else {
-          title.innerText = feedback[2];
-        }
+        feedbackIndex = index;
       })
   );
 };
@@ -47,15 +42,25 @@ const giveMeFeedback = (feedback) => {
 // SHOW FEEDBACK
 
 const textFeedback = document.getElementById("text-comment");
-console.log(textFeedback);
 
 textFeedback.addEventListener("keydown", function (e) {
-  console.log(textFeedback.textContent);
   if (e.key === "Enter") {
     e.preventDefault();
+
+    if (textFeedback.value.trim() === "") {
+      alert("Compilare il campo di feedback");
+      return;
+    }
     const contentFeedback = document.createElement("p");
-    contentFeedback.innerText = textFeedback.value;
-    alert(`Your feedback is ${contentFeedback.innerText}`);
+    if (feedbackIndex < 5) {
+      contentFeedback.innerText = feedback[0];
+    } else if (feedbackIndex > 5 && feedbackIndex < 8) {
+      contentFeedback.innerText = feedback[1];
+    } else {
+      contentFeedback.innerText = feedback[2];
+    }
+
+    alert(`${contentFeedback.innerText}`);
     textFeedback.value = "";
   }
 });
