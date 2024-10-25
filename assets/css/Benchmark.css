@@ -25,6 +25,7 @@ header {
   position: absolute;
   right: 20px;
   top: 20px;
+  stroke-linecap: round;
 }
 
 .count-down {
@@ -34,11 +35,10 @@ header {
 
 .circle {
   fill: none;
-  stroke: #e9e9e9;
+  stroke: #cacaca;
   stroke-width: 20;
-  text-align: center;
   stroke-dasharray: 565;
-  stroke-dashoffset: 0;
+  stroke-dashoffset: 565;
   transition: stroke-dashoffset 1s linear;
 }
 
